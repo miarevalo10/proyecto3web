@@ -1,10 +1,15 @@
 Meteor.methods({
 
-	addImagen(imagen)
+	addImagen(url,snippet,title)
 	{
+	if(!Meteor.userId())
+		{
+			throw new Meteor.Error('not-authenticated')
+		}
 			Imagenes.insert({
-			url:imagen,
-			desc:"Una descripción",
+			url:url,
+			title:title,
+			snippet:snippet,
 			createdAt: new Date(),
 			user:Meteor.userId()
 		});

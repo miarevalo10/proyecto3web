@@ -5,10 +5,10 @@ export const MainLayout=({content})=>(
 	<header>
 		<h2> Imágenes </h2>
 		<nav>
-			<a href="./"> Images </a>
-			<a href="./upload">Upload </a>
-			<a href="./mine">My pictures </a>
-			<a href="./about"> About </a>
+			<a href="./"> Imágenes </a>
+			<a href="./upload">Subir </a>
+			<a href="./mine">Mias </a>
+			<a href="./about"> Acerca </a>
 			<AccountsUI />
 		</nav>
 	</header>

@@ -20,6 +20,7 @@ export default class ImagenesWrapper extends TrackerReact(Component){
 				imagenes:Meteor.subscribe("allImages",{},{sort:{votos:-1},limit: 20})
 			}
 		}
+
 	}
 
 	componentWillUnmount() {
@@ -49,7 +50,6 @@ export default class ImagenesWrapper extends TrackerReact(Component){
 
 	render()
 	{
-
 		return(
 		<div>
 		<h1> Mis imágenes</h1>
@@ -60,10 +60,12 @@ export default class ImagenesWrapper extends TrackerReact(Component){
 				   placeholder="Palabra clave a buscar"/>
 			<input type="number" 
 				   ref="numeroImagenes"
-				   placeholder="Número de imágenes a mostrar"
-				   default="10"
 				   min="1" 
-				   max="100"/>
+				   max="100"
+				   required="required"
+				   id="numeroImagenes"
+				   value={this.state.cant}
+				   />
 			<button type="submit"  value="Submit">Buscar</button>
 			</form>
 
