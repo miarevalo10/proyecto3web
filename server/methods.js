@@ -11,7 +11,10 @@ Meteor.methods({
 			title:title,
 			snippet:snippet,
 			createdAt: new Date(),
-			user:Meteor.userId()
+			user:Meteor.userId(),
+			likes:0,
+			disLikes:0,
+			votos:0
 		});
 	},
 	likeImage(image,liked)

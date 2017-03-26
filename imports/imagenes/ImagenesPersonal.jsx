@@ -4,10 +4,8 @@ import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import ImageForm from './ImageForm';
 import Buscador from './Buscador';
 import ImagePreview from './ImagePreview';
-Imagenes= new Mongo.Collection("imagenes");
 
-export default class ImagenesWrapper extends TrackerReact(Component){
-
+export default class ImagenesPersonal extends TrackerReact(Component){
 
 	constructor() {
 		super();
@@ -17,7 +15,7 @@ export default class ImagenesWrapper extends TrackerReact(Component){
 			count:20,
 			query:"",
 			subscription:{
-				imagenes:Meteor.subscribe("allImages",{},{sort:{votos:-1},limit: 20})
+				imagenes:Meteor.subscribe("myImages",{},{sort:{votos:-1},limit: 20})
 			}
 		}
 
@@ -29,27 +27,29 @@ export default class ImagenesWrapper extends TrackerReact(Component){
 
 	imagenes()
 	{
-		return Imagenes.find({},{sort: {votos:-1}}).fetch();
+		return Imagenes.find({},{sort: {votos:-1},limit: this.state.cant}).fetch();
 	}
 
 	addSearch(event)
 	{
+		if(!Meteor.userId())
+			{
+			Bert.alert( 'Por favor inicie sesión para ver sus imágenes', 'danger', 'fixed-top', 'fa-frown-o' );
+			Session.set("Meteor.loginButtons.dropdownVisible", true);
+			}
+		else
+		{
 		event.preventDefault();
 		var bus=this.refs.filtroImagenes.value.trim();
 		var cant=parseInt(this.refs.numeroImagenes.value);
 		this.setState({count:cant})
 	    this.setState({query:bus});
 	    this.state.subscription.imagenes.stop();
-	    var title = {};
-		var snippet = {};
-	    snippet['snippet'] = new RegExp('.*' + bus);
-	    title['title'] = new RegExp('.*' + bus);
-	    var filtro = { '$or': [snippet, title] };
 	    this.setState({subscription:{
-	    		imagenes:Meteor.subscribe("allImages",filtro,{sort:{votos:-1},limit: cant})
+	    		imagenes:Meteor.subscribe("myImages",bus,{sort:{votos:-1}})
 	    	}});
 
-	
+	}
 	}
 
 
@@ -57,7 +57,7 @@ export default class ImagenesWrapper extends TrackerReact(Component){
 	{
 		return(
 		<div>
-		<h1> Imágenes</h1>
+		<h1> Mis imágenes</h1>
 		
 			<form className="Buscador" id="FormBuscar"onSubmit={this.addSearch.bind(this)}>
 			<input type="text" 

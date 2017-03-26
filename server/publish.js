@@ -9,11 +9,18 @@ Meteor.publish("allImages",function(filters,options){
 		console.log(filters);
 		console.log("Opciones");
 		console.log(options);
+
+	return Imagenes.find(filters,options);
+});
+
+Meteor.publish("myImages",function(bus,options){
+
 		var title = {};
 		var snippet = {};
-	    snippet['snippet'] = new RegExp('.*' + filters);
-	    title['title'] = new RegExp('.*' + filters);
-	    var filtro = { '$or': [snippet, title] };
+	    snippet['snippet'] = new RegExp('.*' + bus);
+	    title['title'] = new RegExp('.*' + bus);
+	    var filtro = { user:this.userId,'$or': [snippet, title] };
 	return Imagenes.find(filtro,options);
-});
+
+})
 
