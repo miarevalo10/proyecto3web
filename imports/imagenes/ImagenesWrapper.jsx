@@ -40,13 +40,9 @@ export default class ImagenesWrapper extends TrackerReact(Component){
 		this.setState({count:cant})
 	    this.setState({query:bus});
 	    this.state.subscription.imagenes.stop();
-	    var title = {};
-		var snippet = {};
-	    snippet['snippet'] = new RegExp('.*' + bus);
-	    title['title'] = new RegExp('.*' + bus);
-	    var filtro = { '$or': [snippet, title] };
+
 	    this.setState({subscription:{
-	    		imagenes:Meteor.subscribe("allImages",filtro,{sort:{votos:-1},limit: cant})
+	    		imagenes:Meteor.subscribe("allImages",bus,{sort:{votos:-1},limit: cant})
 	    	}});
 
 	
