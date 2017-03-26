@@ -6,7 +6,7 @@ DisLikes=new Mongo.Collection("disLikes");
 
 Meteor.publish("allImages",function(bus,options){
 		console.log("Filtros");
-		console.log(filters);
+		console.log(bus);
 		console.log("Opciones");
 		console.log(options);
 		var title = {};
