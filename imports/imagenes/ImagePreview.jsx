@@ -23,7 +23,7 @@ export default class ImagePreview extends Component {
 				<div className="botonesImagen">
 		<button className="social-like btn" title="Like" onClick={this.votarPositivo.bind(this)}>
 		     <span className="count" >{this.props.imagen.likes}</span>
-				 <span className="like"><i className="glyphicon glyphicon-thumbs-up">Like</i></span>
+				 <span className="like"><i className="glyphicon glyphicon-thumbs-up"></i></span>
 		 </button>
 
 		 <button className="social-dislike btn" title="Dislike" onClick={this.votarNegativo.bind(this)}>
