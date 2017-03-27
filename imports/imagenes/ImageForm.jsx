@@ -19,7 +19,7 @@ export default class ImageForm extends Component{
 
 			}
 
-			
+
 		});
 
 	}
@@ -27,15 +27,15 @@ export default class ImageForm extends Component{
 	render(){
 		return(
 			<form className="new-image" onSubmit={this.addImage.bind(this)}>
-			<input type="text" 
+			<input type="text"
 				   ref="imTitle"
 				   required="required"
 				   placeholder="Titulo de la imágen"/>
-				<input type="text" 
+				<input type="text"
 				   ref="imgUrl"
 				   required="required"
 				   placeholder="Url de la imagen"/>
-				<input type="text" 
+				<input type="text"
 				   ref="imSnippet"
 				   placeholder="Descripción de la imágen"/>
 				<button type="submit"  value="Submit">Subir</button>

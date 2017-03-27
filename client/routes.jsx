@@ -15,7 +15,7 @@ FlowRouter.route('/',{
 
 FlowRouter.route('/upload',{
 	action()
-	{	
+	{
 		mount(MainLayout,{
 			content: (<ImageForm />)
 		})
@@ -24,7 +24,7 @@ FlowRouter.route('/upload',{
 
 FlowRouter.route('/mine',{
 	action()
-	{	
+	{
 		mount(MainLayout,{
 			content: (<ImagenesPersonal />)
 		})

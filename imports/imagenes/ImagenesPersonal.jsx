@@ -57,15 +57,15 @@ export default class ImagenesPersonal extends TrackerReact(Component){
 	{
 		return(
 		<div>
-		<h1> Mis imágenes</h1>
-		
+		<h3> Mis imágenes</h3>
+
 			<form className="Buscador" id="FormBuscar"onSubmit={this.addSearch.bind(this)}>
-			<input type="text" 
+			<input type="text"
 				   ref="filtroImagenes"
 				   placeholder="Palabra clave a buscar"/>
-			<input type="number" 
+			<input type="number"
 				   ref="numeroImagenes"
-				   min="1" 
+				   min="1"
 				   max="100"
 				   required="required"
 				   id="numeroImagenes"
@@ -77,10 +77,9 @@ export default class ImagenesPersonal extends TrackerReact(Component){
 		{this.imagenes().map((imagen)=>{
 			return <ImagePreview key={imagen._id} imagen={imagen}  />})}
 		</div>
-		
+
 
 			)
-		
+
 	}
 }
-

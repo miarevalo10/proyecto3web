@@ -1,19 +1,25 @@
 import React from 'react';
 import AccountsUI from '../AccountsUI';
+import Buscador from '../../imports/imagenes/ImagenesWrapper';
+
 export const MainLayout=({content})=>(
 	<div className="main-layout">
+  <div>
 	<header>
-		<h2> Imágenes </h2>
-		<nav>
-			<a href="./"> Imágenes </a>
-			<a href="./upload">Subir </a>
-			<a href="./mine">Mias </a>
-			<a href="./about"> Acerca </a>
+		<br />
+		<nav className="menu">
+			<a href="./" className="btn btn-primary"> Home </a>
+			<a href="./upload" className="btn btn-primary" role="button">Subir Imagen </a>
+			<a href="./mine" className="btn btn-primary" role="button">Mi Imagenes </a>
 			<AccountsUI />
 		</nav>
+		<br />
 	</header>
+	<div className="content">
 	<main>
 	{content}
 	</main>
+	</div>
+	</div>
 	</div>
 	)
