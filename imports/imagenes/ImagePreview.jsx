@@ -11,8 +11,10 @@ export default class ImagePreview extends Component {
 	{
 		Meteor.call('likeImage',this.props.imagen,false);
 	}
+	
 
   render() {
+	  //Los glyphicons de thumbs up and down no cargan, falta agregarlos en el main.html
     return (
         <div className="imagen">
         < a href={this.props.imagen.url} target='_blank' >
