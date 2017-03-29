@@ -4,6 +4,7 @@ import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import ImageForm from './ImageForm';
 import Buscador from './Buscador';
 import ImagePreview from './ImagePreview';
+//Esto lo pueden manejar en un archivo aparte e importarlo
 Imagenes= new Mongo.Collection("imagenes");
 
 export default class ImagenesWrapper extends TrackerReact(Component){
