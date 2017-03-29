@@ -14,7 +14,7 @@ export default class ImagePreview extends Component {
 	
 
   render() {
-	  //Los glyphicons de thumbs up and down no cargan, falta agregarlos en el main.html
+	  //Los glyphicons de thumbs up and down no cargan
     return (
         <div className="imagen">
         < a href={this.props.imagen.url} target='_blank' >
